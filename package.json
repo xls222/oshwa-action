@@ -1,0 +1,28 @@
+{
+  "name": "oshwa-action",
+  "version": "0.0.1",
+  "description": "This action makes a web request to the OSHWA API. Supports POST and GET HTTP methods for project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest > test.log",
+    "build": "ncc build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerdyscout/oshwa-action.git"
+  },
+  "keywords": [],
+  "author": "Stefan Herold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nerdyscout/oshwa-action/issues"
+  },
+  "homepage": "https://github.com/nerdyscout/oshwa-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "webrequest-action": "github:Satak/webrequest-action"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}

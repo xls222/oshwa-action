@@ -1,0 +1,36 @@
+on: [push]
+name: Test
+jobs:
+  oshwa_test:
+    runs-on: ubuntu-latest
+    name: oshwa
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node for testing
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm install
+      - run: npm test
+# POST
+      - name: POST request
+        id: post-request
+        uses: nerdyscout/oshwa-action@main
+        with:
+          url: "https://my-json-server.typicode.com/nerdyscout/oshwa-action/"
+      - name: parse post-request output
+        uses: sergeysova/jq-action@v2
+        with:
+          cmd: jq -C -e '."status"' ${{ steps.post-request.outputs.response }}
+# GET
+      - name: GET request
+        id: get-request
+        uses: nerdyscout/oshwa-action@main
+        with:
+          url: "https://my-json-server.typicode.com/nerdyscout/oshwa-action/"
+      - name: parse get-request output
+        uses: sergeysova/jq-action@v2
+        with:
+          cmd: jq -C -e '."status"' ${{ steps.get-request.outputs.response }}
