@@ -114,7 +114,8 @@ Output format: `JSON`
   "headers":{...},
   "config":{},
   "request":{},
-  "data": {
+  "data":
+  {
     "id": "US000001",
     "responsibleParty": "Example Company Name",
     "country": "United States of America",
@@ -133,6 +134,7 @@ Output format: `JSON`
     "softwareLicense": "No software",
     "documentationLicense": "Other",
     "certificationDate": "YYYY-MM-DDTHH:MM-SS:00"
+  } 
 } 
 ```
 
