@@ -7,36 +7,46 @@
 ### post project
 
 ```yaml
-uses: nerdyscout/oshwa-action@main
-with:
-  token: ${{ secrets.OSHWA_TOKEN }}
-  responsiblePartyType: "Individual"
-  responsibleParty: $GITHUB_REPOSITORY_OWNER
-  bindingParty: ""
-  country: ""
-  projectName: ${GITHUB_REPOSITORY#*/}
-  projectWebsite: "https://" + $GITHUB_REPOSITORY_OWNER + "github.io/" + ${GITHUB_REPOSITORY#*/} 
-  projectVersion: $GITHUB_REF_NAME
-#  previousVersions: ["US000000","US000001"]
-  projectDescription: ""
-  primaryType: "Electronics"
-  documentationUrl: "https://github.com/" + $GITHUB_REPOSITORY + "/docs"
-  hardwareLicense: "CERN"
-  softwareLicense: "GPL"
-  documentationLicense: "CC BY"
-  noCommercialRestriction: true
-  noDocumentationRestriction: true
-  openHardwareComponents: true
-  creatorContribution: true
-  noUseRestriction: true
-  redistributedWork: true
-  noSpecificProduct: true
-  noComponentRestriction: true
-  technologyNeutral: true
-  CertificationMarkTerms: {'accurateContactInformation':{},'complianceWithOfficialCertificationGuidelines': {},'oshwaCertificationMark': {},'violationsEnforcement': {},'responsibility': {'term': 'I have the ability to bind those responsible for the certified item to this agreement.','agreement': true}}
-  relationship: "self"
-  agreementTerms: true
-  parentName: $GITHUB_REPOSITORY_OWNER
+on:
+  release:
+    types: [published]
+
+jobs:
+  certificate:
+    runs-on: ubuntu-latest
+    name: certificate OSHWA project
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nerdyscout/oshwa-action@main
+        with:
+          token: ${{ secrets.OSHWA_TOKEN }}
+          responsiblePartyType: "Individual"
+          responsibleParty: $GITHUB_REPOSITORY_OWNER
+          bindingParty: ""
+          country: ""
+          projectName: ${GITHUB_REPOSITORY#*/}
+          projectWebsite: "https://" + $GITHUB_REPOSITORY_OWNER + "github.io/" + ${GITHUB_REPOSITORY#*/} 
+          projectVersion: $GITHUB_REF_NAME
+        #  previousVersions: ["US000000","US000001"]
+          projectDescription: ""
+          primaryType: "Electronics"
+          documentationUrl: "https://github.com/" + $GITHUB_REPOSITORY + "/docs"
+          hardwareLicense: "CERN"
+          softwareLicense: "GPL"
+          documentationLicense: "CC BY"
+          noCommercialRestriction: true
+          noDocumentationRestriction: true
+          openHardwareComponents: true
+          creatorContribution: true
+          noUseRestriction: true
+          redistributedWork: true
+          noSpecificProduct: true
+          noComponentRestriction: true
+          technologyNeutral: true
+          CertificationMarkTerms: {'accurateContactInformation':{},'complianceWithOfficialCertificationGuidelines': {},'oshwaCertificationMark': {},'violationsEnforcement': {},'responsibility': {'term': 'I have the ability to bind those responsible for the certified item to this agreement.','agreement': true}}
+          relationship: "self"
+          agreementTerms: true
+          parentName: $GITHUB_REPOSITORY_OWNER
 ```
 
 ## Inputs
