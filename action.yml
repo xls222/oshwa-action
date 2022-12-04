@@ -11,17 +11,17 @@ inputs:
     default: "https://certificationapi.oshwa.org/api/"
     required: false
   token:
-    description: OSHWA API Key
+    description: "OSHWA API Key"
     required: true
 # payload
   responsiblePartyType:
-    description: Responsible party type. Must be either "Individual", "Company", or "Organization".
+    description: "Responsible party type. Must be either 'Individual', 'Company', or 'Organization'."
     required: true
   responsibleParty:
-    description: Name of Individual, Company, or Organization Responsible for the Certified Item.
+    description: "Name of Individual, Company, or Organization Responsible for the Certified Item."
     required: true
   bindingParty:
-    description: If not an Individual, name of Individual with Authority to Bind the Company or Organization. Required only if responsiblePartyType is not "Individual".
+    description: "If not an Individual, name of Individual with Authority to Bind the Company or Organization. Required only if responsiblePartyType is not 'Individual'."
     required: true
   country:
     description:
@@ -57,28 +57,28 @@ inputs:
     description:
     required: false
   previousVersions:
-    description: An array of OSHWA UIDs
+    description: "An array of OSHWA UIDs"
     required: false
   projectDescription:
     description:
     required: false
   primaryType:
-    description: Primary project type.
+    description: "Primary project type."
     required: true
   additionalType:
-    description: Additional project types.
+    description: "Additional project types."
     required: false
   projectKeywords:
-    description: Additional searchable keywords
+    description: "Additional searchable keywords"
     required: false
   citation:
-    description: If the project incorporates or builds upon other open projects that are not currently certified by OSHWA, this field can be used to cite those projects.
+    description: "If the project incorporates or builds upon other open projects that are not currently certified by OSHWA, this field can be used to cite those projects."
     required: false
   documentationUrl:
-    description: URL for project documentation
+    description: "URL for project documentation"
     required: false
   availableFileFormat:
-    description: All project documentation and design files are available in the preferred format for making changes.
+    description: "All project documentation and design files are available in the preferred format for making changes."
     required: false
   hardwareLicense:
     description: 
@@ -90,77 +90,77 @@ inputs:
     description:
     required: true
   noCommercialRestriction:
-    description: The project is licensed in a way to allow for modifications and derivative works without commercial restriction.
+    description: "The project is licensed in a way to allow for modifications and derivative works without commercial restriction."
     required: true
   explanationNcr:
-    description: Explanation is required if noCommercialRestriction is false.
+    description: "Explanation is required if noCommercialRestriction is false."
     required: true
   noDocumentationRestriction:
-    description: There is no restriction within my control to selling or giving away the project documentation.
+    description: "There is no restriction within my control to selling or giving away the project documentation."
     required: true
   explanationNdr:
-    description: Explanation is required if noDocumentationRestriction is false.
+    description: "Explanation is required if noDocumentationRestriction is false."
     required: true
   openHardwareComponents:
-    description: Where possible, I have chosen to use components in my hardware that are openly licensed.
+    description: "Where possible, I have chosen to use components in my hardware that are openly licensed."
     required: true
   explanationOhwc:
-    description: Explanation is required if openHardwareComponents is false.
+    description: "Explanation is required if openHardwareComponents is false."
     required: true
   creatorContribution:
-    description: I understand and comply with the "Creator Contribution requirement," explained in the Requirements for Certification
+    description: "I understand and comply with the 'Creator Contribution requirement,' explained in the Requirements for Certification."
     required: true
   explanationCcr:
-    description: Explanation is required if creatorContribution is false.
+    description: "Explanation is required if creatorContribution is false."
     required: true
   noUseRestriction:
-    description: There is no restriction on the use by persons or groups, or by the field of endeavor.
+    description: "There is no restriction on the use by persons or groups, or by the field of endeavor."
     required: true
   explanationNur:
-    description: Explanation is required if noUseRestriction is false.
+    description: "Explanation is required if noUseRestriction is false."
     required: true
   redistributedWork:
-    description: The rights granted by any license on the project applies to all whom the work is redistributed to.
+    description: "The rights granted by any license on the project applies to all whom the work is redistributed to."
     required: true
   explanationRwr:
-    description: Explanation is required if redistributedWork is false.
+    description: "Explanation is required if redistributedWork is false."
     required: true
   noSpecificProduct:
-    description: The rights granted under any license on the project do not depend on the licensed work being part of a specific product.
+    description: "The rights granted under any license on the project do not depend on the licensed work being part of a specific product."
     required: true
   explanationNsp:
-    description: Explanation is required if noSpecificProduct is false.
+    description: "Explanation is required if noSpecificProduct is false."
     required: true
   noComponentRestriction:
-    description: The rights granted under any license on the project do not restrict other hardware or software, for example by requiring that all other hardware or software sold with the item be open source.
+    description: "The rights granted under any license on the project do not restrict other hardware or software, for example by requiring that all other hardware or software sold with the item be open source."
     required: true
   explanationNor:
-    description: Explanation is required if noComponentRestriction is false.
+    description: "Explanation is required if noComponentRestriction is false."
     required: true
   technologyNeutral:
-    description: The rights granted under any license on the project are technology neutral.
+    description: "The rights granted under any license on the project are technology neutral."
     required: true
   explanationTn:
-    description: Explanation is required if technologyNeutral is false.
+    description: "Explanation is required if technologyNeutral is false."
     required: true
   CertificationMarkTerms:
-    description: Certification Mark Terms
+    description: "Certification Mark Terms"
     required: true
   explanationCertificationTerms:
-    description: Explanation for certification mark terms
+    description: "Explanation for certification mark terms"
     required: true
   relationship:
     description:
     required: true
   agreementTerms:
-    description: Agreement to terms
+    description: "Agreement to terms"
     required: true
   parentName:
-    description: Parent name
+    description: "Parent name"
     required: true
 outputs:
   response:
-    description: complete returned data
+    description: "complete returned data"
 
 runs:
   using: 'node16'
