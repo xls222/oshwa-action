@@ -9,7 +9,7 @@ branding:
 inputs:
   url:
     default: "https://certificationapi.oshwa.org/api/"
-    required: false
+    required: true
   token:
     description: "OSHWA API Key"
     required: true
@@ -20,9 +20,11 @@ inputs:
   responsibleParty:
     description: "Name of Individual, Company, or Organization Responsible for the Certified Item."
     required: true
+    default: $GITHUB_REPOSITORY_OWNER
   bindingParty:
     description: "If not an Individual, name of Individual with Authority to Bind the Company or Organization. Required only if responsiblePartyType is not 'Individual'."
     required: true
+    default: ""
   country:
     description:
     required: true
@@ -80,6 +82,7 @@ inputs:
   availableFileFormat:
     description: "All project documentation and design files are available in the preferred format for making changes."
     required: false
+    default: false
   hardwareLicense:
     description: 
     required: true
@@ -92,69 +95,90 @@ inputs:
   noCommercialRestriction:
     description: "The project is licensed in a way to allow for modifications and derivative works without commercial restriction."
     required: true
+    default: false
   explanationNcr:
     description: "Explanation is required if noCommercialRestriction is false."
     required: true
+    default: ""
   noDocumentationRestriction:
     description: "There is no restriction within my control to selling or giving away the project documentation."
     required: true
+    default: false
   explanationNdr:
     description: "Explanation is required if noDocumentationRestriction is false."
     required: true
+    default: ""
   openHardwareComponents:
     description: "Where possible, I have chosen to use components in my hardware that are openly licensed."
     required: true
+    default: false
   explanationOhwc:
     description: "Explanation is required if openHardwareComponents is false."
     required: true
+    default: ""
   creatorContribution:
     description: "I understand and comply with the 'Creator Contribution requirement,' explained in the Requirements for Certification."
     required: true
+    default: false
   explanationCcr:
     description: "Explanation is required if creatorContribution is false."
     required: true
+    default: ""
   noUseRestriction:
     description: "There is no restriction on the use by persons or groups, or by the field of endeavor."
     required: true
+    default: false
   explanationNur:
     description: "Explanation is required if noUseRestriction is false."
     required: true
+    default: ""
   redistributedWork:
     description: "The rights granted by any license on the project applies to all whom the work is redistributed to."
     required: true
+    default: false
   explanationRwr:
     description: "Explanation is required if redistributedWork is false."
     required: true
+    default: ""
   noSpecificProduct:
     description: "The rights granted under any license on the project do not depend on the licensed work being part of a specific product."
     required: true
+    default: false
   explanationNsp:
     description: "Explanation is required if noSpecificProduct is false."
     required: true
+    default: ""
   noComponentRestriction:
     description: "The rights granted under any license on the project do not restrict other hardware or software, for example by requiring that all other hardware or software sold with the item be open source."
     required: true
+    default: false
   explanationNor:
     description: "Explanation is required if noComponentRestriction is false."
     required: true
+    default: ""
   technologyNeutral:
     description: "The rights granted under any license on the project are technology neutral."
     required: true
+    default: false
   explanationTn:
     description: "Explanation is required if technologyNeutral is false."
     required: true
+    default: ""
   CertificationMarkTerms:
     description: "Certification Mark Terms"
     required: true
   explanationCertificationTerms:
     description: "Explanation for certification mark terms"
     required: true
+    default: ""
   relationship:
     description:
     required: true
+    default: "self"
   agreementTerms:
     description: "Agreement to terms"
     required: true
+    default: true
   parentName:
     description: "Parent name"
     required: true
