@@ -25,12 +25,12 @@ jobs:
           bindingParty: ""
           country: ""
           projectName: ${GITHUB_REPOSITORY#*/}
-          projectWebsite: "https://" + $GITHUB_REPOSITORY_OWNER + "github.io/" + ${GITHUB_REPOSITORY#*/} 
+          projectWebsite: "https://" $GITHUB_REPOSITORY_OWNER "github.io/" ${GITHUB_REPOSITORY#*/} 
           projectVersion: $GITHUB_REF_NAME
         #  previousVersions: ["US000000","US000001"]
           projectDescription: ""
           primaryType: "Electronics"
-          documentationUrl: "https://github.com/" + $GITHUB_REPOSITORY + "/docs"
+          documentationUrl: "https://github.com/" $GITHUB_REPOSITORY "/docs"
           hardwareLicense: "CERN"
           softwareLicense: "GPL"
           documentationLicense: "CC BY"
