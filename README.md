@@ -11,42 +11,44 @@ on:
   release:
     types: [published]
 
+env:
+  REPOSITORY_NAME: ${{ github.event.repository.name }}
+
 jobs:
   certificate:
     runs-on: ubuntu-latest
     name: certificate OSHWA project
     steps:
-      - uses: actions/checkout@v3
-      - uses: nerdyscout/oshwa-action@main
-        with:
-          token: ${{ secrets.OSHWA_TOKEN }}
-          responsiblePartyType: "Individual"
-          responsibleParty: $GITHUB_REPOSITORY_OWNER
-          bindingParty: ""
-          country: ""
-          projectName: ${GITHUB_REPOSITORY#*/}
-          projectWebsite: "https://" $GITHUB_REPOSITORY_OWNER "github.io/" ${GITHUB_REPOSITORY#*/} 
-          projectVersion: $GITHUB_REF_NAME
-        #  previousVersions: ["US000000","US000001"]
-          projectDescription: ""
-          primaryType: "Electronics"
-          documentationUrl: "https://github.com/" $GITHUB_REPOSITORY "/docs"
-          hardwareLicense: "CERN"
-          softwareLicense: "GPL"
-          documentationLicense: "CC BY"
-          noCommercialRestriction: true
-          noDocumentationRestriction: true
-          openHardwareComponents: true
-          creatorContribution: true
-          noUseRestriction: true
-          redistributedWork: true
-          noSpecificProduct: true
-          noComponentRestriction: true
-          technologyNeutral: true
-          CertificationMarkTerms: {'accurateContactInformation':{},'complianceWithOfficialCertificationGuidelines': {},'oshwaCertificationMark': {},'violationsEnforcement': {},'responsibility': {'term': 'I have the ability to bind those responsible for the certified item to this agreement.','agreement': true}}
-          relationship: "self"
-          agreementTerms: true
-          parentName: $GITHUB_REPOSITORY_OWNER
+    - uses: nerdyscout/oshwa-action@main
+      with:
+        token: ${{ secrets.OSHWA_TOKEN }}
+        responsiblePartyType: "Individual"
+        responsibleParty: ${{ github.repository_owner }}
+        bindingParty: ""
+        country: ""
+        projectName: ${{ env.REPOSITORY_NAME }}
+        projectWebsite: "https://${{ github.repository_owner }}.github.io/${{ env.REPOSITORY_NAME }}"
+        projectVersion: ${{ github.ref_name }}
+      #  previousVersions: ["US000000","US000001"]
+        projectDescription: ""
+        primaryType: "Electronics"
+        documentationUrl: "https://github.com/${{ github.repository }}/docs"
+        hardwareLicense: "CERN"
+        softwareLicense: "GPL"
+        documentationLicense: "CC BY"
+        noCommercialRestriction: true
+        noDocumentationRestriction: true
+        openHardwareComponents: true
+        creatorContribution: true
+        noUseRestriction: true
+        redistributedWork: true
+        noSpecificProduct: true
+        noComponentRestriction: true
+        technologyNeutral: true
+        CertificationMarkTerms: {'accurateContactInformation':{},'complianceWithOfficialCertificationGuidelines': {},'oshwaCertificationMark': {},'violationsEnforcement': {},'responsibility': {'term': 'I have the ability to bind those responsible for the certified item to this agreement.','agreement': true}}
+        relationship: "self"
+        agreementTerms: true
+        parentName: ${{ github.repository_owner }}
 ```
 
 ## Inputs
