@@ -1,6 +1,7 @@
 # https://certificationapi.oshwa.org/documentation#tag/Project/paths/~1api~1projects/post
 
-name: OSHWA Action
+- name: OSHWA Action
+  uses: nerdyscout/oshwa-action@v0.0.1-pre
 description: request certification via OSHWA API
 author: nerdyscout
 branding:
